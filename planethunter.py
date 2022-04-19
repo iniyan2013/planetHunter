@@ -1,5 +1,9 @@
+#Planethunder Game
+#Written by Iniyan. Supported by Jayakumar
+
 #imports
 import turtle
+import winsound
 import random
 import time
 import os
@@ -10,8 +14,10 @@ screen.bgcolor("black")
 #screen.tracer(0)
 Description = ["Mars","Jupiter","Saturn","Uranus","Neptune"]
 planets = ["mars.gif","jupiter.gif","saturn.gif","uranus.gif","neptune.gif"]
+
 #starting index for planet
 iPlanetCounter = 0
+
 
 for plim in planets:
     screen.addshape(plim)
@@ -111,6 +117,7 @@ def changeplanet():
     iPlanetCounter=iPlanetCounter+1
     print("Planet is ..."+planets[iPlanetCounter] +" -> "+Description[iPlanetCounter])
     planet.shape(planets[iPlanetCounter])
+    winsound.PlaySound("hunted.wav",winsound.SND_ASYNC)
     if(iPlanetCounter >= 4) :
         isGameOn = 0;
     
@@ -132,7 +139,7 @@ def areTheyTouching():
         print("Touched..."+str(score))
         changeplanet()
         updatescore()
-
+      
 
         
 
@@ -164,8 +171,7 @@ fox.hideturtle()
 turtle.bgcolor("blue")
 
 planet.write("Game over",align ='center', font=("Courier",90,"bold"))
-
-#sturtle.write("score:",align ="left", font=("Courier",15,"bold"))
-
+winsound.PlaySound("gmsw1.wav",winsound.SND_ASYNC)
+time.sleep(12)
 
 turtle.mainloop()
